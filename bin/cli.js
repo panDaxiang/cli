@@ -21,14 +21,8 @@ const question = [
 
 program.command('create').description('create a project').action((data) => {
   inquirer.prompt(question).then((res) => {
-    create(res)
+    create(res).then((data) => { console.log(data) })
   })
 })
 
 program.parse(process.argv)
-
-const options = program.opts();
-
-if (options.debug) {
-  console.log('enter debug comd')
-}
